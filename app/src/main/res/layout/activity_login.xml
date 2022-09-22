@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@color/blue_0">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/blue_10"
+            android:minHeight="?attr/actionBarSize"
+            >
+           <ImageView
+               android:id="@+id/back_arrow"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/ic_baseline_arrow_back"
+               android:contentDescription="@string/go_to_back_screen" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/select_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_language"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar_layout"
+        style="@style/Heading"
+        android:padding="20dp"/>
+    <RadioGroup
+        android:id="@+id/language_radio_group"
+        app:layout_constraintTop_toBottomOf="@id/select_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <RadioButton
+            android:id="@+id/hindi_radio_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hindi"
+            android:padding="20dp"
+            android:background="@color/blue_3"
+            android:textColor="@color/black_2"
+            android:textColorHint="@color/black_2"
+            android:buttonTint="@color/black_2"
+            />
+        <RadioButton
+            android:id="@+id/english_radio_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/english"
+            android:padding="20dp"
+            android:background="@color/blue_3"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black_2"
+            android:textColorHint="@color/black_2"
+            android:buttonTint="@color/black_2"/>
+
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/language_radio_group"
+        android:id="@+id/outlinedTextField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_mobile_number"
+        app:startIconDrawable="@drawable/ic_baseline_phone_24"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone_number"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_marginTop="30dp"
+        android:id="@+id/proceed_button"
+        style="@style/PrimaryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/proceed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/button_back"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

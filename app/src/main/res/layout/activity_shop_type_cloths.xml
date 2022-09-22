@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShopTypeClothsActivity"
+    android:background="@color/blue_0">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            android:background="@color/blue_10"
+            android:minHeight="?attr/actionBarSize"
+            >
+            <ImageView
+                android:id="@+id/back_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_arrow_back"
+                android:contentDescription="@string/go_to_back_screen" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        app:layout_constraintTop_toBottomOf="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="fill_vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="50dp"
+            android:layout_marginBottom="50dp"
+            android:layout_gravity="fill_vertical">
+            <TextView
+                android:id="@+id/shop_type_cloths_tv"
+                style="@style/Heading2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="20dp"
+                android:text="@string/shop_types_and_cloths"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:id="@+id/types_service_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/types_of_services_available"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shop_type_cloths_tv"
+                style="@style/SubHeading"
+                android:textStyle="bold" />
+            <CheckBox
+                android:layout_marginTop="0dp"
+                android:id="@+id/ironing_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ironing"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/types_service_tv" />
+
+            <CheckBox
+                android:id="@+id/laundry_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/laundry"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/ironing_checkbox"
+                app:layout_constraintTop_toTopOf="@id/ironing_checkbox" />
+            <CheckBox
+
+                android:id="@+id/washing_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/washing"
+                app:layout_constraintStart_toStartOf="@id/ironing_checkbox"
+                app:layout_constraintTop_toBottomOf="@id/ironing_checkbox" />
+
+
+            <CheckBox
+                android:id="@+id/express_checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/express"
+                app:layout_constraintStart_toStartOf="@id/laundry_checkbox"
+                app:layout_constraintTop_toTopOf="@id/washing_checkbox" />
+            <TextView
+                android:layout_marginTop="30dp"
+                android:id="@+id/types_cloths_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/types_of_cloths_available"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/express_checkbox"
+                style="@style/SubHeading"
+                android:textStyle="bold" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="20dp"
+                android:id="@+id/types_cloths_input_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/types_cloths_tv"/>
+            <Button
+                android:layout_marginTop="30dp"
+                android:id="@+id/next_button"
+                style="@style/PrimaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                app:layout_constraintTop_toBottomOf="@id/types_cloths_input_rv"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/button_back"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

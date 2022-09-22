@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/orderFragment"
+        android:title="@string/order"
+        android:icon="@drawable/ic_baseline_home_24"/>
+
+    <item android:id="@+id/statsFragment"
+        android:title="@string/stats"
+        android:icon="@drawable/ic_baseline_trending_up_24"/>
+
+
+    <item
+        android:id="@+id/inventoryFragment"
+        android:title="@string/inventory"
+        android:icon="@drawable/ic_baseline_list_alt_24" />
+
+
+    <item android:id="@+id/profileFragment"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_baseline_person_24"/>
+
+</menu>
