@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShopTypeClothsActivity"
+    tools:context=".ui.view.ShopTypeClothsActivity"
     android:background="@color/blue_0">
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,13 +116,11 @@
                 android:id="@+id/next_button"
                 style="@style/PrimaryButton"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:text="@string/next"
                 app:layout_constraintTop_toBottomOf="@id/types_cloths_input_rv"
-                android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/button_back"
-                />
+                android:textColor="@color/black"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

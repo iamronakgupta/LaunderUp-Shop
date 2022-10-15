@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ContractActivity"
+    tools:context=".ui.view.ContractActivity"
     android:background="@color/blue_0">
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -48,19 +48,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingVertical="20dp"
-                android:text="@string/legal_details_documents"
+                android:text="@string/contract_and_onboarding_fees"
                 app:layout_constraintTop_toTopOf="parent"
                 />
 
             <Button
                 android:id="@+id/nextBtn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 app:layout_constraintTop_toBottomOf="@+id/legal_documents_tv"
                 android:text="@string/next"
                 android:layout_marginTop="50dp"
                 style="@style/PrimaryButton"
-                android:background="@drawable/button_back"
                 android:layout_marginBottom="20dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

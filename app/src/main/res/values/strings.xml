@@ -52,7 +52,7 @@
     <string name="enter_gst_number">Enter GST Number</string>
     <string name="pan_details">Pan Details</string>
     <string name="enter_pan_number">Enter Pan Number</string>
-    <string name="legal_entity_number">Legal Entity Number</string>
+    <string name="legal_entity_name">Legal Entity Name</string>
     <string name="address_legal_entity">Address Legal Entity</string>
     <string name="upload_image">Upload Image</string>
     <string name="or">or</string>
@@ -74,4 +74,15 @@
     <string name="active">Active</string>
     <string name="picked_up">Picked Up</string>
     <string name="completed">Completed</string>
+    <string name="contract_and_onboarding_fees">Contract and Onboarding Fees</string>
+    <string name="upload_shop_image">Upload Shop Image</string>
+    <string name="name">Name:</string>
+    <string name="title_activity_new_order">NewOrderActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>

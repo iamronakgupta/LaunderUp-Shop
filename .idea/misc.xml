@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/My_folder/Launderup shop/LaunderUp-Shop/app/src/main/res/layout/activity_fragment_navigation.xml" value="0.23645833333333333" />
+        <entry key="..\:/My_folder/Launderup shop/LaunderUp-Shop/app/src/main/res/layout/activity_login.xml" value="0.25052083333333336" />
+        <entry key="..\:/My_folder/Launderup shop/LaunderUp-Shop/app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
+        <entry key="..\:/My_folder/Launderup shop/LaunderUp-Shop/app/src/main/res/layout/activity_shop_timings.xml" value="0.25052083333333336" />
+        <entry key="..\:/My_folder/Launderup shop/LaunderUp-Shop/app/src/main/res/layout/activity_shop_type_cloths.xml" value="0.25052083333333336" />
+        <entry key="..\:/My_folder/Launderup shop/LaunderUp-Shop/app/src/main/res/layout/activity_verification_code.xml" value="0.25052083333333336" />
         <entry key="..\:/src/Fultter Projects/LaunderUpShop/app/src/main/res/drawable/button_back.xml" value="0.2203125" />
         <entry key="..\:/src/Fultter Projects/LaunderUpShop/app/src/main/res/drawable/slash_back.xml" value="0.2203125" />
         <entry key="..\:/src/Fultter Projects/LaunderUpShop/app/src/main/res/drawable/splash_back.xml" value="0.2203125" />
@@ -13,7 +19,8 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
