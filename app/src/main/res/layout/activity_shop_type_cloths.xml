@@ -50,67 +50,82 @@
                 android:paddingVertical="20dp"
                 android:text="@string/shop_types_and_cloths"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
-                android:layout_marginTop="10dp"
-                android:id="@+id/types_service_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/types_of_services_available"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/shop_type_cloths_tv"
-                style="@style/SubHeading"
-                android:textStyle="bold" />
-            <CheckBox
-                android:layout_marginTop="0dp"
-                android:id="@+id/ironing_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ironing"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/types_service_tv" />
 
-            <CheckBox
-                android:id="@+id/laundry_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/laundry"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/ironing_checkbox"
-                app:layout_constraintTop_toTopOf="@id/ironing_checkbox" />
-            <CheckBox
-
-                android:id="@+id/washing_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/washing"
-                app:layout_constraintStart_toStartOf="@id/ironing_checkbox"
-                app:layout_constraintTop_toBottomOf="@id/ironing_checkbox" />
-
-
-            <CheckBox
-                android:id="@+id/express_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/express"
-                app:layout_constraintStart_toStartOf="@id/laundry_checkbox"
-                app:layout_constraintTop_toTopOf="@id/washing_checkbox" />
-            <TextView
-                android:layout_marginTop="30dp"
                 android:id="@+id/types_cloths_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/types_of_cloths_available"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/express_checkbox"
+                app:layout_constraintTop_toBottomOf="@+id/shop_type_cloths_tv"
                 style="@style/SubHeading"
                 android:textStyle="bold" />
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="20dp"
-                android:id="@+id/types_cloths_input_rv"
+            <TextView
+                android:id="@+id/mens_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/types_cloths_tv"/>
+                android:text="@string/mens"
+                app:layout_constraintTop_toBottomOf="@+id/types_cloths_tv"
+                android:paddingVertical="10dp"
+                android:textSize="20sp"
+                android:background="@color/blue_4"
+                android:textColor="@color/black_2"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="10dp"
+                />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/mens_types_cloths_input_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/mens_tv"/>
+
+            <TextView
+                android:id="@+id/women_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/womens"
+                app:layout_constraintTop_toBottomOf="@+id/mens_types_cloths_input_rv"
+                android:paddingVertical="10dp"
+                android:textSize="20sp"
+                android:background="@color/blue_4"
+                android:textColor="@color/black_2"
+                android:paddingStart="20dp"
+                android:layout_marginTop="10dp"
+                />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/women_types_cloths_input_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/women_tv"/>
+
+            <TextView
+                android:id="@+id/kids_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/kids"
+                app:layout_constraintTop_toBottomOf="@+id/women_types_cloths_input_rv"
+                android:paddingVertical="10dp"
+                android:textSize="20sp"
+                android:background="@color/blue_4"
+                android:textColor="@color/black_2"
+                android:paddingLeft="20dp"
+                android:layout_marginTop="10dp"
+                />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:id="@+id/kids_types_cloths_input_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/kids_tv"/>
             <Button
                 android:layout_marginTop="30dp"
                 android:id="@+id/next_button"
@@ -118,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:text="@string/next"
-                app:layout_constraintTop_toBottomOf="@id/types_cloths_input_rv"
+                app:layout_constraintTop_toBottomOf="@id/kids_types_cloths_input_rv"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/black"/>
         </androidx.constraintlayout.widget.ConstraintLayout>

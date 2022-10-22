@@ -38,14 +38,14 @@ class LoginActivity : AppCompatActivity() {
         }
 
         loginButton.setOnClickListener {
-//            if(number.isNotEmpty())
-//            {
-//                var number1:String=number.toString()
-//                number1= "91$number1"
-//                sendOtp(number1.toLong())
-//            }
-//            else
-//                Toast.makeText(this, "Enter Number", Toast.LENGTH_SHORT).show()
+            if(number.isNotEmpty())
+            {
+                var number1:String=number.toString()
+                number1= "91$number1"
+                sendOtp(number1.toLong())
+            }
+            else
+                Toast.makeText(this, "Enter Number", Toast.LENGTH_SHORT).show()
             val intent=Intent(applicationContext,VerificationCodeActivity::class.java)
             startActivity(intent)
         }

@@ -85,4 +85,14 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="rs">Rs</string>
+    <string name="cloth">Cloth</string>
+    <string name="cloth_image">Cloth Image</string>
+    <string name="steam_ironing">Steam Ironing</string>
+    <string name="dry_cleaning">Dry Cleaning</string>
+    <string name="start">Start</string>
+    <string name="mens">Mens</string>
+    <string name="womens">Womens</string>
+    <string name="kids">Kids</string>
+    <string name="enter_bank_name">Enter Bank Name</string>
 </resources>

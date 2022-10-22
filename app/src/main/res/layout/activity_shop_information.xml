@@ -199,11 +199,62 @@
             android:padding="15dp"
             android:textColor="@color/black_2"
             android:inputType="textEmailAddress"/>
+
+        <TextView
+            android:layout_marginTop="50dp"
+            android:id="@+id/types_service_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/types_of_services_available"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/owner_email_et"
+            style="@style/SubHeading"
+            android:textStyle="bold" />
+        <CheckBox
+            android:layout_marginTop="0dp"
+            android:id="@+id/ironing_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ironing"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/types_service_tv" />
+
+        <CheckBox
+            android:id="@+id/laundry_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/laundry"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ironing_checkbox"
+            app:layout_constraintTop_toTopOf="@id/ironing_checkbox" />
+        <CheckBox
+            android:id="@+id/dry_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dry_cleaning"
+            app:layout_constraintStart_toStartOf="@id/ironing_checkbox"
+            app:layout_constraintTop_toBottomOf="@id/ironing_checkbox" />
+
+
+        <CheckBox
+            android:id="@+id/steam_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/steam_ironing"
+            app:layout_constraintStart_toStartOf="@id/laundry_checkbox"
+            app:layout_constraintTop_toTopOf="@id/dry_checkbox" />
+        <CheckBox
+            android:id="@+id/express_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/steam_checkbox"
+            android:text="@string/express"/>
     <Button
         android:id="@+id/nextBtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        app:layout_constraintTop_toBottomOf="@id/owner_email_et"
+        app:layout_constraintTop_toBottomOf="@id/express_checkbox"
         android:text="@string/next"
         android:layout_marginTop="50dp"
         style="@style/PrimaryButton"
