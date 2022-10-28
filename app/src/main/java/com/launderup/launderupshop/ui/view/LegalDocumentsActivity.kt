@@ -11,12 +11,11 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import com.launderup.launderupshop.R
-import com.launderup.launderupshop.data.Images
-import com.launderup.launderupshop.data.ShopDocument
+import com.launderup.launderupshop.data.models.Images
+import com.launderup.launderupshop.data.models.ShopDocument
 import com.launderup.launderupshop.utils.ImageToBase64
 import java.util.regex.Matcher
 import java.util.regex.Pattern

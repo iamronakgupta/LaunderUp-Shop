@@ -1,6 +1,4 @@
-package com.launderup.launderupshop.data
-
-import android.content.res.Resources
+package com.launderup.launderupshop.data.models
 
 data class ClothEntity(
     var name:String?,

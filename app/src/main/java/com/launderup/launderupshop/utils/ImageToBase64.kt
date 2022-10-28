@@ -9,11 +9,11 @@ class ImageToBase64 {
 
     companion object{
         fun encodeImage(bm:Bitmap):String{
-            var baos = ByteArrayOutputStream()
+            val baos = ByteArrayOutputStream()
             bm.compress(Bitmap.CompressFormat.JPEG,100,baos)
-            var b = baos.toByteArray()
+            val b = baos.toByteArray()
 
-            return Base64.encodeToString(b,Base64.DEFAULT)
+            return Base64.encodeToString(b,Base64.URL_SAFE)
 
         }
     }

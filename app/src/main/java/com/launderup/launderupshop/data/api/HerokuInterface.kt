@@ -1,20 +1,26 @@
 package com.launderup.launderupshop.data.api
 
-import com.launderup.launderupshop.data.ShopLogin
+import com.launderup.launderupshop.data.models.ShopLogin
+import com.launderup.launderupshop.data.models.ShopRegister
 import org.json.JSONObject
 import retrofit2.Call
+import retrofit2.http.Body
+import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.Query
-
-public interface HerokuInterface {
+interface HerokuInterface {
     @POST("api/shoplogin")
     fun userLogin(
         @Query("phone")
         mobileNumber:Long,
     ):Call<ShopLogin>
 
+    @Headers(
+        "Accept: application/json"
+    )
     @POST("api/register")
     fun shopRegister(
+
         @Query("shid")
         shid:String,
         @Query("shop_owner_details")
@@ -31,4 +37,7 @@ public interface HerokuInterface {
         licenseImage:String
 
     ):Call<Status>
+
+    @POST("api/register")
+    fun register(@Body dataModal: ShopRegister?): Call<Status?>?
 }

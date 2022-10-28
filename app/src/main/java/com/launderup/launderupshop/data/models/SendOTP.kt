@@ -1,4 +1,4 @@
-package com.launderup.launderupshop.data
+package com.launderup.launderupshop.data.models
 
 data class SendOTP(
     val request_id: String,

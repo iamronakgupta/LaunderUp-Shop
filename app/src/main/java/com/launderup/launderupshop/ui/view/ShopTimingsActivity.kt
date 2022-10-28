@@ -13,11 +13,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.launderup.launderupshop.R
-import com.launderup.launderupshop.data.Images
-import com.launderup.launderupshop.data.ShopDetail
-import com.launderup.launderupshop.data.ShopOwnerDetail
+import com.launderup.launderupshop.data.models.Images
+import com.launderup.launderupshop.data.models.ShopDetail
 import com.launderup.launderupshop.utils.ImageToBase64
-import com.launderup.launderupshop.ui.view.ShopTypeClothsActivity
 import java.io.Serializable
 
 const val REQUEST_CODE = 100

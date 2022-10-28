@@ -1,4 +1,4 @@
-package com.launderup.launderupshop.data
+package com.launderup.launderupshop.data.models
 
 import org.json.JSONObject
 
@@ -8,7 +8,7 @@ class ShopDetail(
     companion object {
         var cloth_types: JSONObject?=null
         var days_open: String?=null
-        val express: Boolean?=null
+        var express: Boolean?=null
         var operational_hours: String?=null
         var services_available: String?=null
         var shop_address: String?=null

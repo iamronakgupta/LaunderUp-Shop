@@ -13,14 +13,13 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import com.launderup.launderupshop.R
-import com.launderup.launderupshop.data.ResendOTP
-import com.launderup.launderupshop.data.ShopLogin
-import com.launderup.launderupshop.data.VerifyOTP
+import com.launderup.launderupshop.data.models.ResendOTP
+import com.launderup.launderupshop.data.models.ShopLogin
+import com.launderup.launderupshop.data.models.VerifyOTP
 import com.launderup.launderupshop.data.api.HerokuInstance
 import com.launderup.launderupshop.data.api.RetrofitInstance.Companion.api
+import com.launderup.launderupshop.utils.Resource
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,7 +35,7 @@ class VerificationCodeActivity : AppCompatActivity() {
     lateinit var otp5:EditText
     lateinit var otp6:EditText
     lateinit var sharedPreferences:SharedPreferences
-    private val sharedPrefFile = "LaunderUp"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +51,7 @@ class VerificationCodeActivity : AppCompatActivity() {
         val mob=intent.getLongExtra("mobile_number",123456789)
 
 
-        sharedPreferences=this.getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        sharedPreferences=this.getSharedPreferences(Resource.sharedPrefFile, Context.MODE_PRIVATE)
 
         //GenericTextWatcher here works only for moving to next EditText when a number is entered
         //first parameter is the current EditText and second parameter is next EditText
@@ -74,9 +73,8 @@ class VerificationCodeActivity : AppCompatActivity() {
 
         //Event that will happen on when we click on Verify
         verifyButton.setOnClickListener {
-//            check(mob)
-            val intent=Intent(applicationContext,ShopInformation::class.java)
-            startActivity(intent)
+            check(mob)
+
         }
 
         resendOTPButton.setOnClickListener {
@@ -140,7 +138,7 @@ class VerificationCodeActivity : AppCompatActivity() {
                 if(response.body()!!.account_status=="Created"|| response.body()!!.account_status=="Created but phone number exists"){
                     val mobile:String=number.toString().replace("91","")
                     val editor: SharedPreferences.Editor = sharedPreferences.edit()
-                    editor.putString("UID", response.body()!!.shid)
+                    editor.putString("shid", response.body()!!.shid)
                         .putString("mobileNumber",mobile)
                     editor.apply()
 
@@ -149,8 +147,9 @@ class VerificationCodeActivity : AppCompatActivity() {
                 else if(response.body()!!.account_status=="Logged In"){
                     val mobile:String=number.toString().replace("91","")
                     val editor:SharedPreferences.Editor=sharedPreferences.edit()
-                    editor.putString("UID",response.body()!!.shid)
+                    editor.putString("shid",response.body()!!.shid)
                         .putString("mobileNumber",mobile)
+                        .putString("Registered", "true")
                     editor.apply()
 
                     startActivity(Intent(this@VerificationCodeActivity, FragmentNavigationActivity::class.java))

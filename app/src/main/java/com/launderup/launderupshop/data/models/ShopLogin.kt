@@ -1,6 +1,6 @@
-package com.launderup.launderupshop.data
+package com.launderup.launderupshop.data.models
 
-data class ShopLoginX(
+data class ShopLogin(
     val account_status: String,
     val shid: String,
     val token: String,

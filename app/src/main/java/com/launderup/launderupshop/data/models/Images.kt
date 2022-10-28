@@ -1,7 +1,4 @@
-package com.launderup.launderupshop.data
-
-import android.util.Base64
-
+package com.launderup.launderupshop.data.models
 
 class Images(
 

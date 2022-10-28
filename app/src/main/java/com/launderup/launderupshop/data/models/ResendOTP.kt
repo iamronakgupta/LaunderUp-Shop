@@ -1,4 +1,4 @@
-package com.launderup.launderupshop.data
+package com.launderup.launderupshop.data.models
 
 data class ResendOTP(
     val message: String,

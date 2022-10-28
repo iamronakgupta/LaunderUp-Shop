@@ -1,4 +1,4 @@
-package com.launderup.launderupshop.data
+package com.launderup.launderupshop.data.models
 
 data class VerifyOTP(
     val message: String,

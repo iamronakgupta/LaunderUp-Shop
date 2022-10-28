@@ -1,5 +1,6 @@
 package com.launderup.launderupshop.data.api
 
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -18,6 +19,7 @@ class HerokuInstance {
                 .writeTimeout(30, TimeUnit.SECONDS)
                 .addInterceptor(logging)
                 .build()
+
 
             Retrofit.Builder()
                 .baseUrl("https://dry-journey-49807.herokuapp.com/")

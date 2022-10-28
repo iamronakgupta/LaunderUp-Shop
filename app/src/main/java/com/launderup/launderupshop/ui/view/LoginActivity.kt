@@ -9,7 +9,7 @@ import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.Toast
 import com.launderup.launderupshop.R
-import com.launderup.launderupshop.data.SendOTP
+import com.launderup.launderupshop.data.models.SendOTP
 import com.launderup.launderupshop.data.api.RetrofitInstance.Companion.api
 import retrofit2.Call
 import retrofit2.Callback
@@ -46,8 +46,7 @@ class LoginActivity : AppCompatActivity() {
             }
             else
                 Toast.makeText(this, "Enter Number", Toast.LENGTH_SHORT).show()
-            val intent=Intent(applicationContext,VerificationCodeActivity::class.java)
-            startActivity(intent)
+
         }
 
     }

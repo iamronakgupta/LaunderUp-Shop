@@ -1,8 +1,8 @@
 package com.launderup.launderupshop.data.api
 
-import com.launderup.launderupshop.data.ResendOTP
-import com.launderup.launderupshop.data.SendOTP
-import com.launderup.launderupshop.data.VerifyOTP
+import com.launderup.launderupshop.data.models.ResendOTP
+import com.launderup.launderupshop.data.models.SendOTP
+import com.launderup.launderupshop.data.models.VerifyOTP
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -10,11 +10,10 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.launderup.launderupshop.R
 ;
-import com.launderup.launderupshop.data.ClothEntity
+import com.launderup.launderupshop.data.models.ClothEntity
 
 class ClothListAdapter (val context: Context, private val items:ArrayList<ClothEntity>):
 

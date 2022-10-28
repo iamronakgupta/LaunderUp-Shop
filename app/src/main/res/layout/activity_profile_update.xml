@@ -6,19 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.ProfileUpdateActivity">
 
-<ImageView
-    android:id="@+id/edit_profile_top"
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:src="@drawable/et_verify_button"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+    <ImageView
+        android:id="@+id/edit_profile_top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@drawable/et_verify_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 <TextView
     android:id="@+id/edit_profile_tv"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Edit Profile"
+    android:text="@string/edit_profile"
     app:layout_constraintTop_toBottomOf="@id/edit_profile_top"
     android:layout_marginTop="30dp"
     style="@style/Heading2"
@@ -41,6 +42,7 @@
         app:hintTextColor="#23A7FF">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/profile_update_name_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
@@ -59,9 +61,10 @@
         android:layout_marginTop="10sp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/profile_update_mobile_number_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Mobile Number"
+            android:hint="@string/mobile_number"
             android:inputType="number"
             android:background="#E3F4FF"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -78,9 +81,10 @@
         android:layout_marginTop="10sp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/profile_update_email_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email ID"
+            android:hint="@string/email_id"
             android:inputType="text|textEmailAddress"
             android:background="#E3F4FF" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -97,9 +101,10 @@
         android:layout_marginTop="10sp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/profile_update_city_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="City"
+            android:hint="@string/city"
             android:inputType="text"
             android:background="#E3F4FF"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -116,10 +121,11 @@
         android:layout_marginTop="10sp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/profile_update_pin_code_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@+id/login_top"
-            android:hint="PinCode"
+            android:hint="@string/pincode"
             android:inputType="number"
             android:background="#E3F4FF"/>
     </com.google.android.material.textfield.TextInputLayout>
@@ -132,7 +138,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="Update"
+        android:text="@string/update"
         android:layout_marginBottom="30dp"
         android:backgroundTint="@color/blue_5"
         android:textColor="@color/black"/>

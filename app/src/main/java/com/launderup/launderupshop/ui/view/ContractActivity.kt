@@ -1,5 +1,8 @@
 package com.launderup.launderupshop.ui.view
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,15 +13,13 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import com.google.gson.Gson
 import com.launderup.launderupshop.R
-import com.launderup.launderupshop.data.Images
-import com.launderup.launderupshop.data.ShopDetail
-import com.launderup.launderupshop.data.ShopDocument
-import com.launderup.launderupshop.data.ShopOwnerDetail
+import com.launderup.launderupshop.data.models.ShopDetail
+import com.launderup.launderupshop.data.models.ShopDocument
+import com.launderup.launderupshop.data.models.ShopOwnerDetail
 import com.launderup.launderupshop.data.api.HerokuInstance
-import com.launderup.launderupshop.data.api.HerokuInstance.Companion.herokuapi
 import com.launderup.launderupshop.data.api.Status
+import com.launderup.launderupshop.utils.Resource
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,6 +29,8 @@ class ContractActivity : AppCompatActivity() {
     lateinit var backArrow:ImageView
     lateinit var nextButton: Button
     lateinit var progressBar: ProgressBar
+    lateinit var sharedPreferences: SharedPreferences
+
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,8 @@ class ContractActivity : AppCompatActivity() {
         backArrow = findViewById(R.id.back_arrow)
         nextButton = findViewById(R.id.nextBtn)
         progressBar = findViewById(R.id.progress_bar)
+
+        sharedPreferences=this.getSharedPreferences(Resource.sharedPrefFile, Context.MODE_PRIVATE)
 
         //closing current activity on click on back arrow
         backArrow.setOnClickListener {
@@ -51,67 +56,84 @@ class ContractActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun shopRegister() {
-        
+
 
         val shopDetailJson = JSONObject()
-        shopDetailJson.append("shop_name",ShopDetail.shop_name)
-        shopDetailJson.append("cloth_types",ShopDetail.cloth_types)
-        shopDetailJson.append("days_open",ShopDetail.days_open)
-        shopDetailJson.append("operational_hours",ShopDetail.operational_hours)
-        shopDetailJson.append("shop_address",ShopDetail.shop_address)
-        shopDetailJson.append("express",ShopDetail.express)
-        shopDetailJson.append("shop_phone_no",ShopDetail.shop_phone_no)
-        shopDetailJson.append("services_available",ShopDetail.services_available)
+        shopDetailJson.put("shop_name", ShopDetail.shop_name)
+        shopDetailJson.put("cloth_types", ShopDetail.cloth_types)
+        shopDetailJson.put("days_open", ShopDetail.days_open)
+        shopDetailJson.put("operational_hours", ShopDetail.operational_hours)
+        shopDetailJson.put("shop_address", ShopDetail.shop_address)
+        shopDetailJson.put("express", ShopDetail.express)
+        shopDetailJson.put("shop_phone_no", ShopDetail.shop_phone_no)
+        shopDetailJson.put("services_available", ShopDetail.services_available)
 
 
         val shopOwnerDetailJson = JSONObject()
-        shopOwnerDetailJson.append("owner_name",ShopOwnerDetail.owner_name)
-        shopOwnerDetailJson.append("owner_address",ShopOwnerDetail.owner_address)
-        shopOwnerDetailJson.append("owner_phone",ShopOwnerDetail.owner_phone)
+        shopOwnerDetailJson.put("owner_name", ShopOwnerDetail.owner_name)
+        shopOwnerDetailJson.put("owner_address", ShopOwnerDetail.owner_address)
+        shopOwnerDetailJson.put("owner_phone", ShopOwnerDetail.owner_phone)
 
         val shopDocumentJson = JSONObject()
-        shopDetailJson.append("gst_registered",ShopDocument.gst_registered)
-        shopDetailJson.append("five_percent_gst",ShopDocument.five_percent_gst)
-        shopDetailJson.append("gst_number",ShopDocument.gst_number)
-        shopDetailJson.append("pan_number",ShopDocument.pan_number)
-        shopDetailJson.append("shop_license_number",ShopDocument.shop_license_number)
-        shopDetailJson.append("address_legal_entity",ShopDocument.address_legal_entity)
-        shopDetailJson.append("entity_name",ShopDocument.entity_name)
-        shopDetailJson.append("bank_name",ShopDocument.bank_name)
-        shopDetailJson.append("bank_account_number",ShopDocument.bank_account_number)
-        shopDetailJson.append("ifsc_code",ShopDocument.ifsc_code)
+        shopDocumentJson.put("gst_registered", ShopDocument.gst_registered)
+        shopDocumentJson.put("five_percent_gst", ShopDocument.gst_registered)
+        shopDocumentJson.put("gst_number", ShopDocument.gst_number)
+        shopDocumentJson.put("pan_number", ShopDocument.pan_number)
+        shopDocumentJson.put("shop_license_number", ShopDocument.shop_license_number)
+        shopDocumentJson.put("address_legal_entity", ShopDocument.address_legal_entity)
+        shopDocumentJson.put("entity_name", ShopDocument.entity_name)
+        shopDocumentJson.put("bank_name", ShopDocument.bank_name)
+        shopDocumentJson.put("bank_account_number", ShopDocument.bank_account_number)
+        shopDocumentJson.put("ifsc_code", ShopDocument.ifsc_code)
 
 
 
 
-        Log.e("Data", "onResponse: $shopDetailJson")
 
-        val register = HerokuInstance.herokuapi.shopRegister(
-            shid="shidce73c9f9bdde0ba46ce1e3883667a904fff735b7",
-            shopDetail = shopDetailJson,
-            shopOwnerDetail = shopOwnerDetailJson,
-            shopDocument = shopDocumentJson,
-            profileImage = Images.profile_image,
-            panImage = Images.pan_image,
-            licenseImage = Images.shop_license_image
-        )
-        register.enqueue(object: Callback<Status>{
-            override fun onResponse(call: Call<Status>, response: Response<Status>) {
-                progressBar.visibility = View.INVISIBLE
-                if (response.code()==200){
-                    Toast.makeText(this@ContractActivity, "SuccessFul", Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
+
+
+        Log.e("Data", "onResponse: ${shopDetailJson}")
+        val shid = sharedPreferences.getString("shid",null)
+        if(shid==null){
+            startActivity(Intent(this,LoginActivity::class.java))
+            finish()
+        }
+
+        val register = shid?.let {
+            HerokuInstance.herokuapi.shopRegister(
+
+                shid = it,
+                shopDetail = shopDetailJson,
+                shopOwnerDetail = shopOwnerDetailJson,
+                shopDocument = shopDocumentJson,
+                profileImage = "",
+                panImage = "",
+                licenseImage = ""
+            )
+        }
+        if (register != null) {
+            register.enqueue(object: Callback<Status>{
+                override fun onResponse(call: Call<Status>, response: Response<Status>) {
+                    progressBar.visibility = View.INVISIBLE
+                    if (response.code()==200){
+                        Toast.makeText(this@ContractActivity, "SuccessFul", Toast.LENGTH_SHORT).show()
+                        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                        editor.putString("Registered", "true")
+                        editor.apply()
+                        startActivity(Intent(this@ContractActivity,FragmentNavigationActivity::class.java))
+                    }else{
+                        Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
+                    }
+                    Log.e("Response", "onResponse: "+response.toString()+response.code())
                 }
-                Log.e("Response", "onResponse: "+response.body().toString())
-            }
 
-            override fun onFailure(call: Call<Status>, t: Throwable) {
-                progressBar.visibility = View.INVISIBLE
-                Toast.makeText(this@ContractActivity, "Fail..", Toast.LENGTH_SHORT).show()
-                Log.e("Response", "onResponse: $call $t")
-            }
+                override fun onFailure(call: Call<Status>, t: Throwable) {
+                    progressBar.visibility = View.INVISIBLE
+                    Toast.makeText(this@ContractActivity, "Fail..", Toast.LENGTH_SHORT).show()
+                    Log.e("Response", "onResponse: $call $t")
+                }
 
-        })
+            })
+        }
     }
 }

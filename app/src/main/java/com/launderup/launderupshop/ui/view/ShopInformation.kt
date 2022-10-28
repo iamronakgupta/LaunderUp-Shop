@@ -9,8 +9,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.launderup.launderupshop.R
-import com.launderup.launderupshop.data.ShopDetail
-import com.launderup.launderupshop.data.ShopOwnerDetail
+import com.launderup.launderupshop.data.models.ShopDetail
+import com.launderup.launderupshop.data.models.ShopOwnerDetail
 
 class ShopInformation : AppCompatActivity() {
     private lateinit var nextButton: Button
@@ -132,6 +132,7 @@ class ShopInformation : AppCompatActivity() {
         ShopDetail.shop_address=shopAddress
         ShopDetail.shop_name=shopName
         ShopDetail.shop_phone_no=shopPhone
+        ShopDetail.express = express.isChecked
 
         val intent = Intent(this, ShopTimingsActivity::class.java)
 
