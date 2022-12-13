@@ -1,33 +1,42 @@
 package com.launderup.launderupshop.ui.fragments
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.Toast
+import com.google.android.material.chip.Chip
 import com.launderup.launderupshop.R
+import com.launderup.launderupshop.data.api.HerokuInstance
+import com.launderup.launderupshop.data.models.StatsResponse
+import com.launderup.launderupshop.utils.Resource
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [StatsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class StatsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var totalorder:TextView
+    private lateinit var totalEarning:TextView
+    private lateinit var weekChip:Chip
+    private lateinit var monthChip:Chip
+    private lateinit var yearChip:Chip
+    private lateinit var progressBar: ProgressBar
+    lateinit var sharedPreferences: SharedPreferences
+    private var shid:String="d"
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
+
+
     }
 
     override fun onCreateView(
@@ -35,26 +44,68 @@ class StatsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_stats, container, false)
+       val root = inflater.inflate(R.layout.fragment_stats, container, false)
+
+        totalorder = root.findViewById(R.id.total_order_change)
+        totalEarning = root.findViewById(R.id.total_earning_change)
+        weekChip = root.findViewById(R.id.this_week)
+        monthChip = root.findViewById(R.id.this_month)
+        yearChip = root.findViewById(R.id.this_year)
+        progressBar = root.findViewById(R.id.progress_bar)
+
+        sharedPreferences= context?.getSharedPreferences(Resource.sharedPrefFile, Context.MODE_PRIVATE)!!
+        shid = sharedPreferences.getString("shid",null).toString()
+
+
+        apiCall("week")
+        weekChip.setOnClickListener {
+            progressBar.visibility = View.VISIBLE
+            apiCall("week")
+        }
+
+
+        monthChip.setOnClickListener {
+            progressBar.visibility = View.VISIBLE
+            apiCall("month")
+
+        }
+
+
+        yearChip.setOnClickListener {
+            progressBar.visibility = View.VISIBLE
+            apiCall("year")
+        }
+
+        return root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment StatsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            StatsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun apiCall(type:String) {
+
+        val stats = HerokuInstance.herokuapi.stats(shid, type)
+
+        stats.enqueue(object:Callback<StatsResponse>{
+            override fun onResponse(call: Call<StatsResponse>, response: Response<StatsResponse>) {
+
+                progressBar.visibility = View.INVISIBLE
+                if(response.code()==200){
+                    val body = response.body()
+                    totalorder.text = body?.order.toString()
+                    totalEarning.text = body?.earning.toString()
+
+                }else{
+                    Toast.makeText(context,"Something Wrong : )",Toast.LENGTH_SHORT).show()
                 }
+
             }
+
+            override fun onFailure(call: Call<StatsResponse>, t: Throwable) {
+                Toast.makeText(context,"Fail ...",Toast.LENGTH_SHORT).show()
+            }
+
+        })
+
+
     }
+
+
 }

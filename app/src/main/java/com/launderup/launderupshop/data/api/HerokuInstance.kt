@@ -1,6 +1,6 @@
 package com.launderup.launderupshop.data.api
 
-import com.google.gson.GsonBuilder
+
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,15 +14,15 @@ class HerokuInstance {
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
 
             val client= OkHttpClient.Builder()
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30, TimeUnit.SECONDS)
-                .writeTimeout(30, TimeUnit.SECONDS)
+                .connectTimeout(2, TimeUnit.MINUTES)
+                .readTimeout(2, TimeUnit.MINUTES)
+                .writeTimeout(2, TimeUnit.MINUTES)
                 .addInterceptor(logging)
                 .build()
 
 
             Retrofit.Builder()
-                .baseUrl("https://dry-journey-49807.herokuapp.com/")
+                .baseUrl("http://18.220.168.57:80/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build()

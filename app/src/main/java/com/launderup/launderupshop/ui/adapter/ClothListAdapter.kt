@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.launderup.launderupshop.R
 ;
 import com.launderup.launderupshop.data.models.ClothEntity
@@ -39,8 +40,19 @@ class ClothListAdapter (val context: Context, private val items:ArrayList<ClothE
         val item= items[position]
         holder.clothName.text=item.name
 
-        val editText = holder.rs
+        if(item.rate!=null && item.rate!!.isNotEmpty()){
+            holder.rs.setText(item.rate)
+        }
 
+        val editText = holder.rs
+        try{
+
+
+        Glide.with(context).load("https://launderup.s3.ap-south-1.amazonaws.com/Clothes_Images/${item.name}.png").into(holder.shopImg);
+
+        }catch (e:Exception){
+            Log.i("Cloth Icon Error",e.toString())
+        }
         editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
             }

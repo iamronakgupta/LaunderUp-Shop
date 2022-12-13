@@ -4,6 +4,8 @@ import org.json.JSONObject
 
 
 data class Order(
+
+    var id:Int? = null,
     val address: String,
     val clothes_types: JSONObject,
     val delivery_dt: String,

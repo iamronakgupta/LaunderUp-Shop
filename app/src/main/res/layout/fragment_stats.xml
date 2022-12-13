@@ -9,14 +9,109 @@
     android:background="@color/blue_0">
 
     <TextView
-        android:id="@+id/profile_tv"
+        android:id="@+id/stats_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Heading2"
         android:paddingVertical="20dp"
         android:layout_marginStart="20dp"
-        android:text="Stats"
+        android:text="@string/stats"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/stats_chip_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/stats_tv"
+        android:padding="10dp">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/this_week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/this_week"
+            android:textSize="15sp"
+            app:chipStrokeWidth="1dp"
+            app:chipBackgroundColor="@color/blue_4"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/this_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipIconTint="@color/blue_5"
+            android:text="@string/this_month"
+            android:textSize="15sp"
+            app:chipStrokeWidth="1dp"
+            app:chipBackgroundColor="@color/blue_4"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/this_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chipIconTint="@color/blue_10"
+            android:text="@string/this_year"
+            android:textSize="15sp"
+            app:chipStrokeWidth="1dp"
+            app:chipBackgroundColor="@color/blue_4"/>
+
+
+    </com.google.android.material.chip.ChipGroup>
+    <TextView
+        android:id="@+id/total_order_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_orders"
+        app:layout_constraintTop_toBottomOf="@+id/stats_chip_group"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingStart="20dp"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:textColor="@color/black_2"/>
+    <TextView
+        android:id="@+id/total_earning_tv"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total_earning"
+        app:layout_constraintTop_toBottomOf="@+id/total_order_tv"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingStart="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black_2"/>
+    <TextView
+        android:id="@+id/total_order_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_10"
+        app:layout_constraintStart_toEndOf="@+id/total_order_tv"
+        app:layout_constraintTop_toBottomOf="@id/stats_chip_group"
+        android:layout_marginTop="50dp"
+        android:textSize="20sp"
+        android:layout_marginStart="20dp"/>
+
+    <TextView
+        android:id="@+id/total_earning_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_10"
+        app:layout_constraintStart_toEndOf="@+id/total_order_tv"
+        app:layout_constraintTop_toBottomOf="@id/total_order_change"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:layout_marginStart="20dp"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

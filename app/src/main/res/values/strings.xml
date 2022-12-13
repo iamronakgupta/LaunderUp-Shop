@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">LaunderUp Shop</string>
-    <string name="launder_up">Launder Up</string>
+    <string name="app_name" translatable="false">LaunderUp Partners</string>
+    <string name="launder_up" translatable="false">Launder Up</string>
     <string name="select_language">Select Language</string>
     <string name="hindi">Hindi</string>
     <string name="english">English</string>
@@ -101,4 +101,152 @@
     <string name="pincode">PinCode</string>
     <string name="update">Update</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="accepted">Accepted</string>
+    <string name="picked">Picked</string>
+    <string name="_1">1</string>
+    <string name="order_idnjsdgjsdjsdvn">order_idnjsdgjsdjsdvn</string>
+    <string name="picked_up_date">Picked Up Date:</string>
+    <string name="delivered_date">Delivered Date:</string>
+    <string name="price">Price</string>
+    <string name="this_year">This Year</string>
+    <string name="this_month">This Month</string>
+    <string name="this_week">This Week</string>
+    <string name="total_orders">Total Orders :</string>
+    <string name="total_earning">Total Earning :</string>
+    <string name="_10">10</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="order_no">Order No</string>
+    <string name="date_pickup">Date Pickup</string>
+    <string name="time_pickup">Time Pickup</string>
+    <string name="date_delivery">Date Delivery</string>
+    <string name="time_delivery">Time Delivery</string>
+    <string name="cloth_name">Cloth Name</string>
+    <string name="_2_20">2 * 20</string>
+    <string name="cloth_lists">Cloth Lists</string>
+    <string name="login">Login</string>
+    <string name="no_new_order">No New Order</string>
+    <string name="terms_condition"><b>TERMS AND CONDITIONS</b>
+        \n
+        Welcome to www.Launderup.com <b>(“Website”, “Site”, “Application”, Company)</b>, to use
+the Services of Company or by any of its affiliates, the entity <b>(“You”, “Your”, “User”,
+            “Customer”)</b> must agree to the following conditions. If you visit through this Website, you
+accept these conditions.
+        \n
+Your access to, and browsing, review and use of this Website is subject to these Terms and
+Conditions and all applicable laws. By accessing and using the Site, you accept the Terms and
+Conditions, without limitation or qualification. If you do not agree to the Terms and Conditions,
+do not use this Site. If, at any time, any of the Terms and Conditions is no longer acceptable
+by you, immediately terminate your use of the Site.
+        \n
+<b>LAUNDERUP (“Company”)</b> is providing cheapest laundry services whilst connecting the
+shop-keepers, individual, entity, organizations and customers to avail the services of laundry.
+The ultimate aim of our Company is to create database, provide cheapest laundry services and
+connect Customer to the laundry service providers in their proximate locality.
+        \n
+You hereby agree to the general Terms and Conditions sets forth herein, to avail the laundry
+services by connecting through the Company (“Services”). The Services offered by the
+Company through their official Mobile Application - www.Launderup.com.
+        \n
+<b>1. PRIVACY</b>
+Please review our Privacy Policy, which also governs your visit to our Application, to fully
+understand our practices.
+        \n
+<b>2. ELIGIBILITY</b>
+The Services of the website are available only to persons who are competent to enter into a
+legally binding contract under the law of republic of India or other applicable jurisdiction,
+including un-discharged solvents, minors etc are not eligible for the Services provided by the
+Company and hence shall not register as a User or transact to this Website.
+In the event of Corporate entity, you represent and warrant that you have the legal authority to
+bind such corporate entity to the terms and conditions, in which case the terms “You”, “Your”,
+“User” or “Customer” shall refer to such corporate entity.
+        \n
+        <b>3. ELECTRONIC COMMUNICATIONS</b>
+        \n
+        <b><i>A. LEGAL SATISFACTION</i></b>
+When you visit www.Launderup.com or send emails to us, you are communicating with us
+electronically.
+        <b><i>B. CONSENT</i></b>
+By communicating with us, you consent to receive communications from us electronically.
+We will communicate with you by e-mail, WhatsApp or by newsletters.
+        \n
+        <b>4. SITE ACCESS</b>
+This Site grants you a limited access to the laundry services and the Customer can buy such
+Services and adept the information, database, offers, coupons, etc.
+        \n
+        <b>5. WARRANTY</b>
+The Company and its affiliates attempt to be as accurate as possible for the Services. The
+database as well as other information of the laundry service providers are authentic to be able
+to provide laundry Services to the Customer. However, the Company makes no warranties
+that the content/information on the Application are error-free. We take the responsibility to
+evaluate the best possible content and Services of high standard for the Customers.
+        \n
+        <b>6. COPYRIGHT</b>
+        \n
+A. Copyright Protection
+All content included on this Application, such as text, graphics, logos., button icons, images,
+audio clips, digital downloads, data compilation, and software is the property of this Website
+or its affiliates and protected by the Copyright laws and international copyright laws. The
+compilation of all content, information, news and others on this Site is the exclusive property
+of the Company and protected by the copyright laws. All software used on this Site is the
+property of the Company or its software suppliers and protected by the copyright laws.
+        \n
+        <b><i>B. FALSE INFORMATION</i></b>
+You may not use a false e-mail address, impersonate any person or entity, or otherwise
+mislead as to the origin or other misinformation. The Company reserves the right (but not the
+obligation) to remove/suspend or terminate any Customer, if found, any fraud committed by
+the Customer.
+        \n
+        <b><i>7. OBLIGATIONS AND TERMS:</i></b>
+As a condition to using any of Company\'s services, and for the mutual benefit of both Company
+and the Customer, the undersigned ("Customer") agrees to the following terms and conditions:
+ All garments, clothes, linen, fabrics shall be the responsibility of the laundry service
+provider (“laundry shop-keepers”).
+ The Company only connects the Customer and the laundry shop-keepers at a reasonable
+rate and also be responsible for providing elite class service for laundry by launching
+monthly package subscriptions. The 18% GST (Gross-Service Tax) shall be applicable.
+ The Company shall ensure that washing, drying and folding services are maintained at a
+high level of quality by the laundry shop-keepers.
+        \n
+        <b>8. LIMITATION OF LIABILITY</b>
+IN NO EVENT SHALL LAUNDERUP, ITS AFFILIATE, AND ALL THIRD-PARTY
+SERVICE PROVIDERS, BE LIABLE TO THE CUSTOMER OR ANY OTHER PERSON
+OR ENTITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, PUNITIVE, OR
+CONSEQUENTIAL DAMAGES WHATSOEVER, INCLUDING ANY THAT MAY
+RESULT FROM:
+ The articles (garments, clothes, linen, fabrics of any kind) which belongs to the Customer
+and to which the local laundry service provider will be directly liable, the Company shall
+not, in any circumstances, be liable towards the Customer and the local laundry service
+provider;
+ Company does not hold any liability on account of damages occurred of any kind from the
+content published on our Website.
+        \n
+        <b>9. RELATIONSHIP</b>
+This Terms of Use/Terms and Conditions shall not be construed to create any partnership,
+joint venture, employer employee, agency, or franchisor-franchisee relationship between the
+Company and Customer.
+        \n
+        <b>10. NOTICES</b>
+All notices / communications shall be given to us by email to Launderup@launderup.com.
+Such notice will be deemed received in full on a business day and on the next business day if
+the email is sent on a weekend or public holiday.
+        \n
+        <b>11. LAW AND JURISDICTION</b>
+These terms and conditions and the relationship between the Customer, service provider and
+the Company shall be governed by and construed in accordance with the Law of India and the
+Customer and service provider agree to submit to the exclusive jurisdiction of the Courts of
+New Delhi.
+        \n
+        <b>12. SITE POLICIES, MODIFICATION, AND SEVERABILITY</b>
+Please review our other policies, such as our Privacy Policy, posted on our Application. These
+policies also govern your visit to this Application. We reserve the right to make changes to
+our Site, policies, and these Conditions of Use at any time. If any of these conditions shall be
+deemed invalid, void, or for any reason unenforceable, that condition shall be deemed
+severable and shall not affect the validity and enforceability of any remaining condition.
+        \n\n
+        <i>[Company Name – LaunderUp]</i>
+        <i>[Email - Launderup@launderup.com]</i> </string>
+    <string name="i_agree_to_terms_and_condition">I Agree to terms and condition</string>
 </resources>

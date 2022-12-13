@@ -1,38 +1,54 @@
 package com.launderup.launderupshop.ui.fragments
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.launderup.launderupshop.R
+import com.launderup.launderupshop.data.api.HerokuInstance
+import com.launderup.launderupshop.data.models.OrdersResponse
+import com.launderup.launderupshop.data.models.ShopDetailResponse
+import com.launderup.launderupshop.data.models.SingleOrderResponse
+import com.launderup.launderupshop.repository.ShopRepository
 import com.launderup.launderupshop.ui.adapter.*
 import com.launderup.launderupshop.ui.view.NewOrderActivity
+import com.launderup.launderupshop.ui.view.OrderActivity
+import com.launderup.launderupshop.utils.Resource
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.ArrayList
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 
-class OrderFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class OrderFragment : Fragment(),ActiveOrderAdapter.ClickListener {
+    private var chipSelected = 1
+    private lateinit var arrayList:ArrayList<SingleOrderResponse>
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var progressBar: ProgressBar
+    lateinit var sharedPreferences: SharedPreferences
+    private var shid:String="d"
+    private var shopDetail:ShopDetailResponse? = null
+    private lateinit var noOrderTv:TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        getOrdersList()
+
     }
 
     override fun onCreateView(
@@ -43,97 +59,145 @@ class OrderFragment : Fragment() {
         val root= inflater.inflate(R.layout.fragment_order, container, false)
 
         val orderChipGroup:ChipGroup=root.findViewById(R.id.order_chip_group)
+        progressBar = root.findViewById(R.id.progress_bar)
         val checkChipId=orderChipGroup.checkedChipId
+        noOrderTv=root.findViewById(R.id.no_order_tv)
 
         val chip1:Chip=root.findViewById(R.id.chip_1)
         val chip2:Chip=root.findViewById(R.id.chip_2)
         val chip3:Chip=root.findViewById(R.id.chip_3)
         val chip4:Chip=root.findViewById(R.id.chip_4)
+        chip1.setChipBackgroundColorResource(R.color.blue_5)
 
-        val arrayList : ArrayList<String> = getItemsList()
-        val recyclerView: RecyclerView =root.findViewById(R.id.order_rv)
+//        if(shopDetail==null){
+//           shopDetail = context?.let { ShopRepository().getShopDetail(it,"ShopDetail") }
+//        }
+
+
+        sharedPreferences= context?.getSharedPreferences(Resource.sharedPrefFile, Context.MODE_PRIVATE)!!
+        shid = sharedPreferences.getString("shid",null).toString()
+
+        recyclerView=root.findViewById(R.id.order_rv)
+        recyclerView.layoutManager= LinearLayoutManager(context)
+        arrayList= ArrayList<SingleOrderResponse>()
+
+        getOrdersList()
+
 
         chip1.setOnClickListener {
-            val activeOrderAdapter = context?.let { ActiveOrderAdapter(it,arrayList) }
-            recyclerView.layoutManager= LinearLayoutManager(context)
-            recyclerView.adapter=activeOrderAdapter
+            progressBar.visibility = View.VISIBLE
 
-            activeOrderAdapter!!.setOnItemClickListener(object : ActiveOrderAdapter.OnItemClickListener{
-                override fun onItemClick(position: Int) {
-//                val intent=Intent(applicationContext,ClothesListActivity::class.java)
-//                startActivity(intent)
-                }
-            })
+            chip1.setChipBackgroundColorResource(R.color.blue_5)
+            chip2.setChipBackgroundColorResource(R.color.blue_4)
+            chip3.setChipBackgroundColorResource(R.color.blue_4)
+            chip4.setChipBackgroundColorResource(R.color.blue_4)
+
+            chipSelected=1
+            getOrdersList()
+
+
         }
 
          chip2.setOnClickListener {
-             val acceptedOrderAdapter = context?.let { AcceptedOrderAdapter(it,arrayList) }
-             recyclerView.layoutManager= LinearLayoutManager(context)
-             recyclerView.adapter=acceptedOrderAdapter
 
-             acceptedOrderAdapter!!.setOnItemClickListener(object : AcceptedOrderAdapter.OnItemClickListener{
-                 override fun onItemClick(position: Int) {
-//                val intent=Intent(applicationContext,ClothesListActivity::class.java)
-//                startActivity(intent)
-                 }
-             })
+             progressBar.visibility = View.VISIBLE
+             chip1.setChipBackgroundColorResource(R.color.blue_4)
+             chip2.setChipBackgroundColorResource(R.color.blue_5)
+             chip3.setChipBackgroundColorResource(R.color.blue_4)
+             chip4.setChipBackgroundColorResource(R.color.blue_4)
+
+             chipSelected=2
+             getOrdersList()
+
+
          }
 
         chip3.setOnClickListener {
-            val pickedOrderAdapter = context?.let { PickedOrderAdapter(it,arrayList) }
-            recyclerView.layoutManager= LinearLayoutManager(context)
-            recyclerView.adapter=pickedOrderAdapter
 
-            pickedOrderAdapter!!.setOnItemClickListener(object : PickedOrderAdapter.OnItemClickListener{
-                override fun onItemClick(position: Int) {
-//                val intent=Intent(applicationContext,ClothesListActivity::class.java)
-//                startActivity(intent)
-                }
-            })
+            progressBar.visibility = View.VISIBLE
+            chip1.setChipBackgroundColorResource(R.color.blue_4)
+            chip2.setChipBackgroundColorResource(R.color.blue_4)
+            chip3.setChipBackgroundColorResource(R.color.blue_5)
+            chip4.setChipBackgroundColorResource(R.color.blue_4)
+
+            chipSelected=3
+            getOrdersList()
+
         }
 
-//        chip4.setOnClickListener {
-//            val acceptedOrderAdapter = context?.let { AcceptedOrderAdapter(it,arrayList) }
-//            recyclerView.layoutManager= LinearLayoutManager(context)
-//            recyclerView.adapter=acceptedOrderAdapter
-//
-//            acceptedOrderAdapter!!.setOnItemClickListener(object : AcceptedOrderAdapter.OnItemClickListener{
-//                override fun onItemClick(position: Int) {
-////                val intent=Intent(applicationContext,ClothesListActivity::class.java)
-////                startActivity(intent)
-//                }
-//            })
-//
-//        }
+        chip4.setOnClickListener {
+
+            progressBar.visibility = View.VISIBLE
+            chip1.setChipBackgroundColorResource(R.color.blue_4)
+            chip2.setChipBackgroundColorResource(R.color.blue_4)
+            chip3.setChipBackgroundColorResource(R.color.blue_4)
+            chip4.setChipBackgroundColorResource(R.color.blue_5)
+
+            chipSelected=4
+            getOrdersList()
+
+
+
+        }
         return root
     }
 
-    private fun getItemsList(): ArrayList<String> {
-        val list=ArrayList<String>()
-        for(i in 1..10){
-            list.add("Order $i")
+
+
+
+    private fun getOrdersList(){
+        var status = ""
+        if(chipSelected==1){
+            status = "all"
+        }else if(chipSelected==2){
+            status="accepted"
+        }else if(chipSelected==3){
+            status="picked"
+        }else if(chipSelected==4){
+            status="completed"
         }
-        return list
-    }
 
+        val order = HerokuInstance.herokuapi.getShopOrder(shid,status,1)
+        order.enqueue(object:Callback<OrdersResponse> {
+            override fun onResponse(call: Call<OrdersResponse>, response: Response<OrdersResponse>) {
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment OrderFragment1.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            OrderFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                if(response.code()==200){
+                    //Toast.makeText(context,"Order Fetched",Toast.LENGTH_LONG).show()
+                    Log.i("Response Orders",response.body().toString())
+                    arrayList = response.body()?.data!!
+                    if(arrayList.isEmpty()){
+                        noOrderTv.visibility =View.VISIBLE
+                    }else{
+                        noOrderTv.visibility=View.INVISIBLE
+                    }
+
+                    recyclerView.adapter= context?.let { ActiveOrderAdapter(it,arrayList,this@OrderFragment) }
+                }else{
+                    noOrderTv.visibility =View.VISIBLE
+                    //Toast.makeText(context,"Order Not Fetched",Toast.LENGTH_LONG).show()
                 }
+                progressBar.visibility = View.INVISIBLE
             }
+
+            override fun onFailure(call: Call<OrdersResponse>, t: Throwable) {
+                noOrderTv.visibility =View.VISIBLE
+                progressBar.visibility = View.INVISIBLE
+               //Toast.makeText(context,"Api Failed",Toast.LENGTH_SHORT).show()
+            }
+
+        })
+
     }
+
+    override fun onArrowClicked(position: Int) {
+        Toast.makeText(context,"Arrow Clicked",Toast.LENGTH_SHORT).show()
+        val intent = Intent(context, OrderActivity::class.java)
+        intent.putExtra("order",arrayList.get(position))
+        startActivity(intent)
+    }
+
+    override fun onItemClicked(position: Int) {
+       Toast.makeText(context,"Order",Toast.LENGTH_SHORT).show()
+    }
+
 }

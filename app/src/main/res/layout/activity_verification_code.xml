@@ -7,6 +7,7 @@
     tools:context=".ui.view.VerificationCodeActivity"
     android:background="@color/blue_0">
 
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         app:layout_constraintStart_toStartOf="parent"
@@ -154,5 +155,15 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:enabled="false"
         android:layout_marginHorizontal="20dp"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

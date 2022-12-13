@@ -11,6 +11,9 @@ class ClothData {
         private val kids = ArrayList<ClothEntity>()
 
         fun menCloths():ArrayList<ClothEntity>{
+
+
+
             //mens cloths
 
             men.add(ClothEntity("Bathrobe",null,null))
@@ -48,7 +51,6 @@ class ClothData {
         fun womenCloths():ArrayList<ClothEntity>{
             //womens cloths
             women.add(ClothEntity("Bathrobe",null,null))
-            women.add(ClothEntity("Blouse",null,null))
             women.add(ClothEntity("Blouse",null,null))
             women.add(ClothEntity("Cap",null,null))
             women.add(ClothEntity("CholilehengaDupatta",null,null))

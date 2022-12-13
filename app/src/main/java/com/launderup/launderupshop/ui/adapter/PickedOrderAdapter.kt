@@ -26,8 +26,7 @@ class PickedOrderAdapter (val context: Context, private val items:ArrayList<Stri
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
             return ViewHolder(
-                LayoutInflater.from(context).inflate(R.layout.picked_order_cardview, parent, false),
-                mListener
+                LayoutInflater.from(context).inflate(R.layout.picked_order_cardview, parent, false)
             )
         }
 
@@ -40,16 +39,12 @@ class PickedOrderAdapter (val context: Context, private val items:ArrayList<Stri
             return items.size
         }
 
-        class ViewHolder(view: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(view) {
+        class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val shopImg: ImageView = view.findViewById(R.id.shop_img)
             val shopName: TextView = view.findViewById(R.id.shop_name)
             val starBtn:Button = view.findViewById(R.id.picked_up_order_start_btn)
 
-            init {
-                view.setOnClickListener {
-                    listener.onItemClick(adapterPosition)
-                }
-            }
+
         }
 
     }
